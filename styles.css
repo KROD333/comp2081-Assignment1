@@ -1,43 +1,58 @@
-/* Base */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* Base Styles */
+:root {
+    --bg: #000000;       
+    --text: #ffffff;     
+    --primary: #00d9ff;  
+    --accent: #5bc0be;   
+}
+
+/* Reset and base styles */
+html, body { 
+    height: 100%; 
+}
+
 body {
     margin: 0;
     font-family: 'Saira', Arial, sans-serif;
-    color: #222;
+    color: var(--text);
     line-height: 1.6;
-    background: #fafafa;
+    background: var(--bg);
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+img { 
+    max-width: 100%; 
+    display: block; 
+}
 
-/* Layout for headers */
+a { 
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/* Header styles with flexbox */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    background: #ffffff;
-    border-bottom: 1px solid #eee;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     position: sticky;
     top: 0;
     z-index: 10;
+    padding: 16px 0;
 }
 
-.header > .logo h1 {
+.header .logo h1 {
     font-family: 'Fredoka One', cursive;
     font-size: 33px;
     letter-spacing: 1px;
     margin: 0;
+    color: var(--primary);
 }
 
 .hero h2 {
     font-family: 'Fredoka One', cursive;
-    justify-content: space-between;
     font-size: 21px;
     margin: 0;
     letter-spacing: 1px;
+    color: var(--primary);
 }
 
 .header > .logo p {
@@ -45,6 +60,7 @@ a { color: inherit; text-decoration: none; }
     font-weight: 600;
     font-size: 12px;
     letter-spacing: 2px;
+    color: var(--text);
 }
 
 .header .nav ul {
@@ -55,6 +71,121 @@ a { color: inherit; text-decoration: none; }
     padding: 0;
 }
 
-.header .nav a { opacity: 0.8; }
-.header .nav a:hover { opacity: 1; }
+.header .nav a { 
+    color: var(--text); 
+    opacity: 0.9; 
+}
+
+.header .nav a:hover { 
+    color: var(--primary); 
+    opacity: 1; 
+}
+
+.logo-credit {
+    display: block;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.logo-credit a { 
+    color: inherit; 
+    text-decoration: underline; 
+}
+
+/* Main content styles */
+.hero { 
+    padding-top: 24px; 
+    padding-bottom: 24px; 
+}
+
+.hero p { 
+    color: var(--text); 
+    opacity: 0.85; 
+}
+
+/* Button styles using simple CSS */
+.cta-button {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cta-button:hover { 
+    filter: brightness(1.05); 
+}
+
+/* Section styles */
+section { 
+    background: transparent; 
+    margin: 16px 0; 
+    padding: 16px; 
+    border-radius: 10px; 
+}
+
+section h2, section h3, section h4 { 
+    color: var(--primary); 
+}
+
+section p { 
+    color: var(--text); 
+    opacity: 0.9; 
+}
+
+/* Footer styles using flexbox */
+footer {
+    background: var(--primary);
+    color: #e5f0ff;
+    padding-top: 16px;
+}
+
+footer h4 { 
+    color: var(--text); 
+}
+
+footer > .container-fluid > .row:last-child { 
+    border-top: 1px solid rgba(255,255,255,0.15); 
+    padding: 12px 0;
+}
+
+/* Card customizations for Bootstrap cards */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
+.card-title {
+    color: var(--primary);
+}
+
+.card-text {
+    color: var(--text);
+    opacity: 0.9;
+}
+
+/* Badge customizations */
+.badge.bg-primary {
+    background-color: var(--accent) !important;
+    color: var(--text);
+}
+
+/* Responsive adjustments using media queries */
+@media (max-width: 768px) {
+    .header .row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .header .nav {
+        justify-content: center !important;
+    }
+    
+    .header .logo {
+        justify-content: center;
+    }
+}
 
